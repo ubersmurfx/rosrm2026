@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.15)  9 JUN 2026 01:06
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.11.15)  9 JUN 2026 01:42
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -600,13 +600,13 @@ Package caption Info: End \AtBeginDocument code.
 
 [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}{/usr/share/texmf/fonts/en
 c/dvips/cm-super/cm-super-t2a.enc}] [2] [3] [4]
-LaTeX Font Info:    Trying to load font information for U+msa on input line 93.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 91.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 93.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 91.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -614,103 +614,108 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
 LaTeX Font Warning: Font shape `T2A/cmr/m/up' undefined
-(Font)              using `T2A/cmr/m/n' instead on input line 93.
+(Font)              using `T2A/cmr/m/n' instead on input line 91.
 
 [5] [6] [7] [8] [9{/usr/share/texmf/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 [10]
 LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 
-200.
+208.
  (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 ) [11]
 [12] [13] [14] [15]
-Underfull \hbox (badness 10000) in paragraph at lines 277--282
+Underfull \hbox (badness 10000) in paragraph at lines 281--286
 []\T2A/cmr/m/n/10.95 \refitem{[]}
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 284--288
+Underfull \hbox (badness 10000) in paragraph at lines 288--292
 []\T2A/cmr/m/n/10.95 \refitem{[]}
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 290--294
+Underfull \hbox (badness 10000) in paragraph at lines 294--298
 []\T2A/cmr/m/n/10.95 \refitem{[]}
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 296--299
+Underfull \hbox (badness 10000) in paragraph at lines 300--303
 []\T2A/cmr/m/n/10.95 \refitem{[]}
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 301--306
+Underfull \hbox (badness 10000) in paragraph at lines 305--310
+[]\T2A/cmr/m/n/10.95 \refitem{[]}
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 312--317
 []\T2A/cmr/m/n/10.95 \refitem{[]}
  []
 
 [16]
-Underfull \hbox (badness 10000) in paragraph at lines 308--313
+Underfull \hbox (badness 10000) in paragraph at lines 319--322
 []\T2A/cmr/m/n/10.95 \refitem{[]}
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 315--318
+Underfull \hbox (badness 10000) in paragraph at lines 324--329
 []\T2A/cmr/m/n/10.95 \refitem{[]}
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 320--325
+Underfull \hbox (badness 10000) in paragraph at lines 331--335
 []\T2A/cmr/m/n/10.95 \refitem{[]}
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 327--331
+Underfull \hbox (badness 10000) in paragraph at lines 337--342
 []\T2A/cmr/m/n/10.95 \refitem{[]}
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 333--338
+Underfull \hbox (badness 10000) in paragraph at lines 344--349
 []\T2A/cmr/m/n/10.95 \refitem{[]}
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 340--345
+Underfull \hbox (badness 10000) in paragraph at lines 351--356
 []\T2A/cmr/m/n/10.95 \refitem{[]}
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 347--352
+Underfull \hbox (badness 10000) in paragraph at lines 358--363
 []\T2A/cmr/m/n/10.95 \refitem{[]}
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 354--359
-[]\T2A/cmr/m/n/10.95 \refitem{[]}
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 361--365
+Underfull \hbox (badness 10000) in paragraph at lines 365--369
 []\T2A/cmr/m/n/10.95 \refitem{[]}
  []
 
 [17]
-Underfull \hbox (badness 10000) in paragraph at lines 367--370
+Underfull \hbox (badness 10000) in paragraph at lines 371--374
 []\T2A/cmr/m/n/10.95 \refitem{[]}
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 372--377
-[]\T2A/cmr/m/n/10.95 \refitem{[]}
+Underfull \hbox (badness 10000) in paragraph at lines 376--380
+[]\T2A/cmr/m/up/10.95 \refitem{[]}
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 379--384
-[]\T2A/cmr/m/n/10.95 \refitem{[]}
+Underfull \hbox (badness 10000) in paragraph at lines 382--387
+[]\T2A/cmr/m/up/10.95 \refitem{[]}
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 386--391
-[]\T2A/cmr/m/n/10.95 \refitem{[]}
+Underfull \hbox (badness 10000) in paragraph at lines 389--394
+[]\T2A/cmr/m/up/10.95 \refitem{[]}
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 396--401
+[]\T2A/cmr/m/up/10.95 \refitem{[]}
  []
 
 Package epstopdf Info: Source file: <fig/Fig1.eps>
@@ -721,12 +726,12 @@ Package epstopdf Info: Source file: <fig/Fig1.eps>
 (epstopdf)                    size: 527602 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/Fig1-eps-converted-to.
 pdf fig/Fig1.eps>
-(epstopdf)             \includegraphics on input line 399.
+(epstopdf)             \includegraphics on input line 411.
 Package epstopdf Info: Output file is already uptodate.
 <fig/Fig1-eps-converted-to.pdf, id=76, 1927.2pt x 1204.5pt>
 File: fig/Fig1-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/Fig1-eps-converted-to.pdf>
-Package pdftex.def Info: fig/Fig1-eps-converted-to.pdf  used on input line 399.
+Package pdftex.def Info: fig/Fig1-eps-converted-to.pdf  used on input line 411.
 
 (pdftex.def)             Requested size: 445.9955pt x 278.73843pt.
 [18] [19 <./fig/Fig1-eps-converted-to.pdf>]
@@ -738,12 +743,12 @@ Package epstopdf Info: Source file: <fig/Fig2.eps>
 (epstopdf)                    size: 44374 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/Fig2-eps-converted-to.
 pdf fig/Fig2.eps>
-(epstopdf)             \includegraphics on input line 411.
+(epstopdf)             \includegraphics on input line 423.
 Package epstopdf Info: Output file is already uptodate.
-<fig/Fig2-eps-converted-to.pdf, id=88, 1088.065pt x 272.01625pt>
+<fig/Fig2-eps-converted-to.pdf, id=89, 1088.065pt x 272.01625pt>
 File: fig/Fig2-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/Fig2-eps-converted-to.pdf>
-Package pdftex.def Info: fig/Fig2-eps-converted-to.pdf  used on input line 411.
+Package pdftex.def Info: fig/Fig2-eps-converted-to.pdf  used on input line 423.
 
 (pdftex.def)             Requested size: 445.9955pt x 111.49832pt.
  [20 <./fig/Fig2-eps-converted-to.pdf>]
@@ -755,12 +760,12 @@ Package epstopdf Info: Source file: <fig/Fig3.eps>
 (epstopdf)                    size: 146341 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/Fig3-eps-converted-to.
 pdf fig/Fig3.eps>
-(epstopdf)             \includegraphics on input line 424.
+(epstopdf)             \includegraphics on input line 436.
 Package epstopdf Info: Output file is already uptodate.
-<fig/Fig3-eps-converted-to.pdf, id=94, 894.34125pt x 384.43625pt>
+<fig/Fig3-eps-converted-to.pdf, id=95, 894.34125pt x 384.43625pt>
 File: fig/Fig3-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/Fig3-eps-converted-to.pdf>
-Package pdftex.def Info: fig/Fig3-eps-converted-to.pdf  used on input line 424.
+Package pdftex.def Info: fig/Fig3-eps-converted-to.pdf  used on input line 436.
 
 (pdftex.def)             Requested size: 445.9955pt x 191.71317pt.
  [21 <./fig/Fig3-eps-converted-to.pdf>]
@@ -772,12 +777,12 @@ Package epstopdf Info: Source file: <fig/Fig4.eps>
 (epstopdf)                    size: 15555 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/Fig4-eps-converted-to.
 pdf fig/Fig4.eps>
-(epstopdf)             \includegraphics on input line 434.
+(epstopdf)             \includegraphics on input line 446.
 Package epstopdf Info: Output file is already uptodate.
-<fig/Fig4-eps-converted-to.pdf, id=100, 693.59125pt x 264.99pt>
+<fig/Fig4-eps-converted-to.pdf, id=101, 693.59125pt x 264.99pt>
 File: fig/Fig4-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/Fig4-eps-converted-to.pdf>
-Package pdftex.def Info: fig/Fig4-eps-converted-to.pdf  used on input line 434.
+Package pdftex.def Info: fig/Fig4-eps-converted-to.pdf  used on input line 446.
 
 (pdftex.def)             Requested size: 445.9955pt x 170.39766pt.
  [22 <./fig/Fig4-eps-converted-to.pdf>]
@@ -789,12 +794,12 @@ Package epstopdf Info: Source file: <fig/Fig5.eps>
 (epstopdf)                    size: 80336 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/Fig5-eps-converted-to.
 pdf fig/Fig5.eps>
-(epstopdf)             \includegraphics on input line 444.
+(epstopdf)             \includegraphics on input line 456.
 Package epstopdf Info: Output file is already uptodate.
-<fig/Fig5-eps-converted-to.pdf, id=106, 813.0375pt x 175.65625pt>
+<fig/Fig5-eps-converted-to.pdf, id=107, 813.0375pt x 175.65625pt>
 File: fig/Fig5-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/Fig5-eps-converted-to.pdf>
-Package pdftex.def Info: fig/Fig5-eps-converted-to.pdf  used on input line 444.
+Package pdftex.def Info: fig/Fig5-eps-converted-to.pdf  used on input line 456.
 
 (pdftex.def)             Requested size: 445.9955pt x 96.3566pt.
  [23 <./fig/Fig5-eps-converted-to.pdf>]
@@ -806,12 +811,12 @@ Package epstopdf Info: Source file: <fig/Fig6.eps>
 (epstopdf)                    size: 72995 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/Fig6-eps-converted-to.
 pdf fig/Fig6.eps>
-(epstopdf)             \includegraphics on input line 455.
+(epstopdf)             \includegraphics on input line 467.
 Package epstopdf Info: Output file is already uptodate.
-<fig/Fig6-eps-converted-to.pdf, id=112, 792.9625pt x 606.265pt>
+<fig/Fig6-eps-converted-to.pdf, id=113, 792.9625pt x 606.265pt>
 File: fig/Fig6-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/Fig6-eps-converted-to.pdf>
-Package pdftex.def Info: fig/Fig6-eps-converted-to.pdf  used on input line 455.
+Package pdftex.def Info: fig/Fig6-eps-converted-to.pdf  used on input line 467.
 
 (pdftex.def)             Requested size: 445.9955pt x 340.99547pt.
  [24 <./fig/Fig6-eps-converted-to.pdf>]
@@ -823,12 +828,12 @@ Package epstopdf Info: Source file: <fig/Fig7.eps>
 (epstopdf)                    size: 154741 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/Fig7-eps-converted-to.
 pdf fig/Fig7.eps>
-(epstopdf)             \includegraphics on input line 465.
+(epstopdf)             \includegraphics on input line 477.
 Package epstopdf Info: Output file is already uptodate.
-<fig/Fig7-eps-converted-to.pdf, id=118, 814.04124pt x 531.9875pt>
+<fig/Fig7-eps-converted-to.pdf, id=119, 814.04124pt x 531.9875pt>
 File: fig/Fig7-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/Fig7-eps-converted-to.pdf>
-Package pdftex.def Info: fig/Fig7-eps-converted-to.pdf  used on input line 465.
+Package pdftex.def Info: fig/Fig7-eps-converted-to.pdf  used on input line 477.
 
 (pdftex.def)             Requested size: 445.9955pt x 291.4657pt.
  [25 <./fig/Fig7-eps-converted-to.pdf>]
@@ -840,12 +845,12 @@ Package epstopdf Info: Source file: <fig/Fig8.eps>
 (epstopdf)                    size: 155966 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/Fig8-eps-converted-to.
 pdf fig/Fig8.eps>
-(epstopdf)             \includegraphics on input line 476.
+(epstopdf)             \includegraphics on input line 488.
 Package epstopdf Info: Output file is already uptodate.
-<fig/Fig8-eps-converted-to.pdf, id=125, 624.3325pt x 591.20876pt>
+<fig/Fig8-eps-converted-to.pdf, id=126, 624.3325pt x 591.20876pt>
 File: fig/Fig8-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/Fig8-eps-converted-to.pdf>
-Package pdftex.def Info: fig/Fig8-eps-converted-to.pdf  used on input line 476.
+Package pdftex.def Info: fig/Fig8-eps-converted-to.pdf  used on input line 488.
 
 (pdftex.def)             Requested size: 445.9955pt x 422.34119pt.
  [26 <./fig/Fig8-eps-converted-to.pdf>] [27] [28] (./paper.aux)
@@ -857,18 +862,15 @@ L3 programming layer <2024-01-22>
 
 LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
  ) 
 Here is how much of TeX's memory you used:
- 8087 strings out of 475656
- 125409 string characters out of 5787140
+ 8093 strings out of 475656
+ 125485 string characters out of 5787140
  1934975 words of memory out of 5000000
- 29987 multiletter control sequences out of 15000+600000
- 577649 words of font info for 85 fonts, out of 8000000 for 9000
+ 29992 multiletter control sequences out of 15000+600000
+ 577960 words of font info for 86 fonts, out of 8000000 for 9000
  430 hyphenation exceptions out of 8191
- 74i,12n,79p,1304b,338s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 74i,12n,79p,1304b,416s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
@@ -888,11 +890,12 @@ usr/share/texmf/fonts/type1/public/cm-super/sfrm0800.pfb></usr/share/texmf/font
 s/type1/public/cm-super/sfrm1000.pfb></usr/share/texmf/fonts/type1/public/cm-su
 per/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></u
 sr/share/texmf/fonts/type1/public/cm-super/sfti1095.pfb></usr/share/texmf/fonts
-/type1/public/cm-super/sftt1200.pfb>
-Output written on paper.pdf (28 pages, 1584098 bytes).
+/type1/public/cm-super/sftt1095.pfb></usr/share/texmf/fonts/type1/public/cm-sup
+er/sftt1200.pfb>
+Output written on paper.pdf (28 pages, 1606670 bytes).
 PDF statistics:
- 239 PDF objects out of 1000 (max. 8388607)
- 144 compressed objects within 2 object streams
+ 244 PDF objects out of 1000 (max. 8388607)
+ 147 compressed objects within 2 object streams
  0 named destinations out of 1000 (max. 500000)
  41 words of extra memory for PDF output out of 10000 (max. 10000000)
 

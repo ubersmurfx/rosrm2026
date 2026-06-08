@@ -86,7 +86,12 @@ A comparative analysis of known algorithms (PPO, SAC, TD3, MPC+RL) in terms of i
 
 
 The BUV prototype developed at the Central Research and Development Institute of Robotics and Technical Cybernetics (Saint-Petersburg), shown in Fig.~\ref{fig:cad_model}, is used as the base model for this study. The prototype was successfully tested for watertightness and overall structural integrity, confirming its ability to perform translational motion underwater and execute basic maneuvers, including course changes and depth adjustment in manual control mode. The prototype was also equipped with three cameras, a water acidity sensor, a water temperature sensor, and a pressure sensor for measuring water characteristics. 
-Final technical specifications of the vehicle, obtained after several stages of field testing:
+Final technical specifications of the vehicle, obtained after several 
+stages of field testing, are as follows: weight --- 1.5 kg; overall 
+dimensions (L $\times$ W $\times$ H) --- 430 $\times$ 215 $\times$ 120 mm; 
+average speed --- 0.05 m/s; maximum speed (experimental) --- 0.14 m/s; 
+maneuverability (yaw angular velocity) --- 8.2$^\circ$/s; biomorphic 
+propulsor design.
 
 The design of the biomimetic propulsor is shown in Fig.~\ref{fig:prototype}. It is located in the tail section of the robot and consists of a brushless motor with a gearbox, a crank-slider mechanism, a servo drive with an eccentric, and a flexible caudal fin. Torque from the motor is transmitted to the eccentric, which moves the carriage along aluminum tube guides, converting rotary motion into reciprocating motion and then into oscillatory motion of the tail.
 
@@ -135,15 +140,15 @@ Considering the physical limitations of the tail construction, the limiting valu
 \ddot{\theta}_{i,\max} < \ddot{\theta}_{\max,\text{servo}}.
 \]
 
-The dynamics of the robotic fish are computed using the Bullet Physics library with the Featherstone algorithm [15] for articulated body systems, enabling the calculation of the kinematics of the robot's multi-link caudal fin. Hydrodynamic forces are computed using the finite element method, eliminating the need for simplified analytical approximations for bodies of complex shape. The buoyancy force is calculated by integrating the hydrostatic pressure over all submerged faces. This approach ensures high accuracy at the interface between media (e.g., during partial surfacing with consideration of waves). The drag force is the sum of the quadratic form drag:
+The dynamics of the robotic fish are computed using the Bullet Physics library with the Featherstone algorithm [15] for articulated body systems, enabling the calculation of the kinematics of the robot's multi-link caudal fin. Hydrodynamic forces are computed using the finite element method, eliminating the need for simplified analytical approximations for bodies of complex shape. The buoyancy force is calculated by integrating the hydrostatic pressure over all submerged faces. This approach ensures high accuracy at the interface between media (e.g., during partial surfacing with consideration of waves). The drag force is the sum of the quadratic form drag [16]:
 
 \[
 d\mathbf{F}_{\text{form}} = -\frac{1}{2} \rho C_d |\mathbf{V}_{\text{flow}} \cdot \mathbf{n}| (\mathbf{V}_{\text{flow}} \cdot \mathbf{n}) \mathbf{n} \, dA,
 \]
 
-\noindent where $\rho$ is the fluid density; $C_d$ is the form drag coefficient, which may depend on the material and local geometry; $|\mathbf{V}_{\text{flow}} \cdot \mathbf{n}|$ is the scalar projection of the relative velocity onto the normal; $(\mathbf{V}_{\text{flow}} \cdot \mathbf{n})$ is the magnitude of the projection of the relative velocity onto the normal; $dA$ is the area of the mesh finite element.
+\noindent where $\rho$ is the fluid density; $C_d$ is the form drag coefficient, which may depend on the material and local geometry; $|\mathbf{V}_{\text{flow}} \cdot \mathbf{n}|$ is the scalar projection of the relative velocity onto the normal; $(\mathbf{V}_{\text{flow}} \cdot \mathbf{n})$ is the magnitude of the projection of the relative velocity onto the normal; $dA$ is the area of the mesh finite element,
 
-and viscous friction [17]:
+\noindent and viscous friction [16]:
 
 \[
 d\mathbf{F}_{\text{visc}} = -\frac{1}{2} \rho C_f |\mathbf{V}_{\text{flow}}| \mathbf{V}_{\text{tang,flow}} \, dA,
@@ -156,9 +161,12 @@ Since the Stonefish simulator uses a simplified discrete hydrodynamic model, it 
 
 At a constant specified tail oscillation frequency of 0.3 Hz at a depth of 2 meters, the steady-state horizontal velocity was 0.015 m/s. In turn, for a frequency of 3 Hz, the fish velocity was 0.2 m/s, which coincides within the margin of error with the technical characteristics of the developed fish prototype. The simulation environment qualitatively demonstrates the behavior of the underwater vehicle. Figure~\ref{fig:sim_models} shows the robot representations used in the simulation: 1 - hydrodynamic model (finite-element mesh of faces); 2 - geometric 3D model; 3 - collision model for collision calculations in Bullet Physics; 4 - kinematic model of the tail consisting of 5 rigid links.
 
-To solve the formulated control problem, the SAC algorithm proposed by Haarnoja in [16] and implemented in the Stable-Baselines 3 library was selected. Unlike algorithms of the DQN family, SAC is capable of operating with continuous control signals, which eliminates the need for discretization and the associated loss of control precision. SAC is an off-policy algorithm that uses an experience replay buffer. This becomes important for solving the problem at hand, since collecting a single episode in a hydrodynamic simulator requires significant computational resources, and reusing data accelerates convergence [17].
+To solve the formulated control problem, the SAC algorithm proposed by Haarnoja in [17] and implemented in the Stable-Baselines 3 library was selected. Unlike algorithms of the DQN family, SAC is capable of operating with continuous control signals, which eliminates the need for discretization and the associated loss of control precision. SAC is an off-policy algorithm that uses an experience replay buffer. This becomes important for solving the problem at hand, since collecting a single episode in a hydrodynamic simulator requires significant computational resources, and reusing data accelerates convergence [18].
 
-The central idea of SAC, distinguishing it from other algorithms, is the maximization of not only the expected reward but also the entropy of the policy. This is expressed in the following objective function:
+The central idea of SAC, distinguishing it from other algorithms, 
+is the maximization of not only the expected return (discounted sum 
+of rewards) but also the entropy of the policy. This is expressed in 
+the following objective function:
 
 \[
 J(\pi) = \sum_{t=0}^{T} \mathbb{E}_{(s_t, a_t) \sim \rho_\pi} \left[ R(s_t, a_t) + \alpha \mathcal{H}(\pi(\cdot|s_t)) \right],
@@ -207,7 +215,7 @@ Since the standard architecture of Stonefish does not support vectorized environ
 \section{Experimental Methodology and Results}
 
 
-To ensure the robustness of the trained policy and prevent overfitting of the agent to specific conditions, domain randomization was employed by deliberately varying the parameters of the simulation environment within specified ranges during the training phase. The parameters of the parallel environments are randomly changed from episode to episode, forcing the policy to generalize its control strategy [18] and making it invariant to initial conditions.
+To ensure the robustness of the trained policy and prevent overfitting of the agent to specific conditions, domain randomization was employed by deliberately varying the parameters of the simulation environment within specified ranges during the training phase. The parameters of the parallel environments are randomly changed from episode to episode, forcing the policy to generalize its control strategy [19] and making it invariant to initial conditions.
 
 The key hyperparameters of the SAC algorithm and neural network architectures used for training the final model are presented in Table~\ref{tab:training_params}. The chosen values are based on the Stable-Baselines~3 documentation as well as empirical tuning during preliminary experiments.
 
@@ -246,7 +254,6 @@ The quantitative metrics confirm that the trained SAC policy successfully solves
 % ================== SECTION 5 ==================
 \section{Conclusion}
 
-
 This paper presented an approach to the synthesis of a diving depth control system for a biomimetic underwater vehicle based on the Soft Actor-Critic deep reinforcement learning algorithm. A specialized software environment, FishEnv, was developed, integrating the Stonefish hydrodynamic simulator with the \texttt{gymnasium.Env} interface via a ROS2 bridging layer, ensuring reproducibility of experiments and scalability of training through parallel execution of independent simulator instances orchestrated by Kubernetes.
 
 The main scientific and practical results of the work are as follows:
@@ -265,9 +272,6 @@ A promising direction is the extension of the problem formulation to three-dimen
 \begin{acknowledgments}
 The work was carried out within the framework of the state assignment of the Ministry of Science and Higher Education of the Russian Federation No.~075-00558-26-00 dated January~12, 2026 ``Development of the theory of model-oriented design for the creation of transformable robotic systems using methods of computational mechanics and fluid dynamics'' (FNRG-2025-0005 1024042600099-7-2.2.2;1.2.1).
 
-
-This research received no specific grant from any funding agency
-in the public, commercial, or not-for-profit sectors.
 \end{acknowledgments}
 
 % ============== BIBLIOGRAPHY ==============
@@ -369,25 +373,33 @@ P.~Winder, {\it Reinforcement Learning for Real-World
 Applications} (BHV-Petersburg, St.~Petersburg, 2022).
 
 \bibitem{16}
+\refitem{misc}
+P.~Cieslak, Stonefish: An Advanced Open-Source Simulation Tool for 
+Marine Robotics, 2019. 
+\url{https://stonefish.readthedocs.io}.
+
+\bibitem{17}
 \refitem{article}
 T.~Haarnoja, A.~Zhou, P.~Abbeel, and S.~Levine, Soft
 Actor-Critic: Off-policy maximum entropy deep reinforcement
 learning with a stochastic actor, {\it Proc. 35th Int. Conf.
 Mach. Learn. (ICML)}, PMLR, 2018, pp.~1861--1870.
 
-\bibitem{17}
+\bibitem{18}
 \refitem{article}
 A.~Raffin, A.~Hill, A.~Gleave, A.~Kanervisto, M.~Ernestus, and
 N.~Dormann, Stable-Baselines3: Reliable reinforcement learning
 implementations, {\it J. Mach. Learn. Res.}, 2021, vol.~22,
 no.~268, pp.~1--8.
 
-\bibitem{18}
+\bibitem{19}
 \refitem{article}
 J.~Tobin, R.~Fong, A.~Ray, J.~Schneider, W.~Zaremba, and
 P.~Abbeel, Domain randomization for transferring deep neural
 networks from simulation to the real world, {\it Proc. IEEE/RSJ
 Int. Conf. Intell. Robots Syst. (IROS)}, 2017, pp.~23--30.
+
+
 
 \end{thebibliography}
 
