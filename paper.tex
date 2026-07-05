@@ -3,7 +3,9 @@
 %% Сохранять в кодировке CP866 !!!
 %%
 \documentclass[12pt]{revtex4}
-\usepackage{graphicx}  
+\usepackage{graphicx}
+\usepackage{float}
+
 \begin{document}
 
 \title{Intelligent Motion Control of an Underwater Biomimetic Robot
@@ -62,8 +64,18 @@ The remainder of this paper is organized as follows. Section II presents a liter
 % ================== SECTION 2 ==================
 \section{Related Work}
 
+Vehicle propulsion in a fluid can be achieved through one of several fundamental methods: using propellers, through body shape changes, using jet propulsion, or through the action of internal mechanisms. Traditional autonomous unmanned underwater vehicles (AUVs) have achieved significant success in exploring the underwater domain precisely due to propeller-type thrusters. An example is the deep-water vehicle Vityaz-D, developed at the Rubin Central Design Bureau (Russia). This robot, whose external appearance is shown in Fig.~\ref{fig:vehicles}, is capable of diving to a depth of 11,000 meters and addressing a wide range of scientific and applied tasks - from marine biology to geological surveys. Motion control of the Vityaz-D is performed by means of main and maneuvering propellers, while course and depth correction is achieved using control surfaces. 
 
-Vehicle propulsion in a fluid can be achieved through one of several fundamental methods: using propellers, through body shape changes, using jet propulsion, or through the action of internal mechanisms. Traditional autonomous unmanned underwater vehicles (AUVs) have achieved significant success in exploring the underwater domain precisely due to propeller-type thrusters. An example is the deep-water vehicle Vityaz-D, developed at the Rubin Central Design Bureau (Russia). This robot, whose external appearance is shown in Fig.~\ref{fig:vehicles}, is capable of diving to a depth of 11,000 meters and addressing a wide range of scientific and applied tasks - from marine biology to geological surveys. Motion control of the  Vityaz-D is performed by means of main and maneuvering propellers, while course and depth correction is achieved using control surfaces. The vehicle's navigation system integrates data from an inertial measurement unit, a Doppler velocity log, and hydroacoustic sensors [5]. The control system software features a multi-level architecture: the lower level, based on PID controllers, is responsible for stabilizing heading, roll, and pitch, while the upper level provides route planning, obstacle avoidance, and response to emergency situations.
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{fig/Fig1.eps}
+\caption{(a) AUV <<Vityaz-D>> (Russia);
+(b) Snake-like robot <<EELUME>> (Norway);
+(c) Manta ray robot (USA).}
+\label{fig:vehicles}
+\end{figure}
+
+The vehicle's navigation system integrates data from an inertial measurement unit, a Doppler velocity log, and hydroacoustic sensors [5]. The control system software features a multi-level architecture: the lower level, based on PID controllers, is responsible for stabilizing heading, roll, and pitch, while the upper level provides route planning, obstacle avoidance, and response to emergency situations.
 
 In recent years, considerable interest has emerged in small-sized mobile robots employing an alternative locomotion method - changing the shape of the body and fins. In fish-like robots, there are more than ten such methods, determined by the nature of the wave motion of the body or fins [4]. Locomotion in this case is based on the physical properties of fluid viscosity and the associated processes of vortex formation [5].
 
@@ -84,8 +96,19 @@ A comparative analysis of known algorithms (PPO, SAC, TD3, MPC+RL) in terms of i
 % ================== SECTION 3 ==================
 \section{Robot Model and Simulation Environment}
 
+The BUV prototype developed at the Central Research and Development Institute of Robotics and Technical Cybernetics (Saint-Petersburg), shown in Fig.~\ref{fig:cad_model}, is used as the base model for this study. 
 
-The BUV prototype developed at the Central Research and Development Institute of Robotics and Technical Cybernetics (Saint-Petersburg), shown in Fig.~\ref{fig:cad_model}, is used as the base model for this study. The prototype was successfully tested for watertightness and overall structural integrity, confirming its ability to perform translational motion underwater and execute basic maneuvers, including course changes and depth adjustment in manual control mode. The prototype was also equipped with three cameras, a water acidity sensor, a water temperature sensor, and a pressure sensor for measuring water characteristics. 
+\begin{figure}[H]
+\centering
+\includegraphics[width=\linewidth]{fig/Fig2.eps}
+\caption{CAD model of the robot: 1~--- body with integrated head
+fairing; 2~--- pectoral fins (passive stabilizers);
+3~--- caudal fin; 4~--- multi-link tail propulsor (5~segments);
+5~--- lighting system; 6~--- three cameras.}
+\label{fig:cad_model}
+\end{figure}
+
+The prototype was successfully tested for watertightness and overall structural integrity, confirming its ability to perform translational motion underwater and execute basic maneuvers, including course changes and depth adjustment in manual control mode. The prototype was also equipped with three cameras, a water acidity sensor, a water temperature sensor, and a pressure sensor for measuring water characteristics. 
 Final technical specifications of the vehicle, obtained after several 
 stages of field testing, are as follows: weight --- 1.5 kg; overall 
 dimensions (L $\times$ W $\times$ H) --- 430 $\times$ 215 $\times$ 120 mm; 
@@ -95,11 +118,28 @@ propulsor design.
 
 The design of the biomimetic propulsor is shown in Fig.~\ref{fig:prototype}. It is located in the tail section of the robot and consists of a brushless motor with a gearbox, a crank-slider mechanism, a servo drive with an eccentric, and a flexible caudal fin. Torque from the motor is transmitted to the eccentric, which moves the carriage along aluminum tube guides, converting rotary motion into reciprocating motion and then into oscillatory motion of the tail.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{fig/Fig3.eps}
+\caption{Prototype testing and internal structure of the robot.}
+\label{fig:prototype}
+\end{figure}
+
+
 The digital model of the robotic fish, in turn, incorporates a geometrically simplified body and fin geometry, streamlined for computation. The original model contained fastening elements (screws, clamps, mounting and fastening holes) and electronics, which were removed to obtain a smooth body surface and reduce the number of finite-element mesh nodes. To compensate for the mass of the removed elements, point masses were added at the corresponding locations of the simplified model, allowing the original center of mass position to be preserved unchanged relative to the full model. This simplification reduced the computational load without introducing significant errors into the hydrodynamic analysis results, since the removed elements do not significantly affect the flow around the body [14], and their inertial characteristics are accounted for through the point masses. The body material in the simulation is assigned properties corresponding to ABS plastic with a density of 1.04~g/cm$^3$.
 
 The choice of simulation environment determines the feasibility and quality of the research, as well as the possibility of subsequently transferring the algorithms to the real prototype. Two key requirements are imposed on the environment: high fidelity of hydrodynamic process modeling and built-in support for reinforcement learning interfaces. The NVIDIA Isaac Sim and MuJoCo packages, although possessing high computational speed and built-in GPU computation support, require high-performance hardware for hydrodynamic calculations, which lack native support and require the development of additional modules implementing fluid physics. The Ansys Fluent package, being a benchmark for computational fluid dynamics (CFD), is entirely unsuitable for iterative neural network training due to its low simulation speed.
 
-Preliminary simulations revealed that using a rigid tail consisting of a single segment does not allow the vehicle to perform translational motion underwater. Instead of generating thrust, only rocking of the vehicle's body in place occurs. To solve this problem, a modified tail assembly model was developed, consisting of five dependent rigid links connected by revolute joints (Fig.~\ref{fig:tail}). This approach approximates the bending wave characteristic of this type of locomotion. To simplify the control action and focus the research on high-level control algorithms rather than searching for low-level patterns, a sinusoidal locomotion model is used for the deflection angles of each of the five links.
+Preliminary simulations revealed that using a rigid tail consisting of a single segment does not allow the vehicle to perform translational motion underwater. Instead of generating thrust, only rocking of the vehicle's body in place occurs. To solve this problem, a modified tail assembly model was developed, consisting of five dependent rigid links connected by revolute joints (Fig.~\ref{fig:tail}). 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{fig/Fig4.eps}
+\caption{Five-segment tail of the robotic fish.}
+\label{fig:tail}
+\end{figure}
+
+This approach approximates the bending wave characteristic of this type of locomotion. To simplify the control action and focus the research on high-level control algorithms rather than searching for low-level patterns, a sinusoidal locomotion model is used for the deflection angles of each of the five links.
 
 The kinematics of the tail are described by a traveling wave model. The amplitude increases linearly from head to tail with coefficients $g_i = [0.2, 0.4, 0.6, 0.8, 1.0]$. The angular position of the $i$-th joint at time $t$ is given by the equation:
 \[
@@ -161,6 +201,14 @@ Since the Stonefish simulator uses a simplified discrete hydrodynamic model, it 
 
 At a constant specified tail oscillation frequency of 0.3 Hz at a depth of 2 meters, the steady-state horizontal velocity was 0.015 m/s. In turn, for a frequency of 3 Hz, the fish velocity was 0.2 m/s, which coincides within the margin of error with the technical characteristics of the developed fish prototype. The simulation environment qualitatively demonstrates the behavior of the underwater vehicle. Figure~\ref{fig:sim_models} shows the robot representations used in the simulation: 1 - hydrodynamic model (finite-element mesh of faces); 2 - geometric 3D model; 3 - collision model for collision calculations in Bullet Physics; 4 - kinematic model of the tail consisting of 5 rigid links.
 
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{fig/Fig5.eps}
+\caption{Hydrodynamic model, geometric model, collision model,
+model of the tail with 5 elements.}
+\label{fig:sim_models}
+\end{figure}
+
 To solve the formulated control problem, the SAC algorithm proposed by Haarnoja in [17] and implemented in the Stable-Baselines 3 library was selected. Unlike algorithms of the DQN family, SAC is capable of operating with continuous control signals, which eliminates the need for discretization and the associated loss of control precision. SAC is an off-policy algorithm that uses an experience replay buffer. This becomes important for solving the problem at hand, since collecting a single episode in a hydrodynamic simulator requires significant computational resources, and reusing data accelerates convergence [18].
 
 The central idea of SAC, distinguishing it from other algorithms, 
@@ -209,7 +257,16 @@ To integrate deep reinforcement learning algorithms with the Stonefish simulator
 
 The machine learning pipeline is organized as follows: the agent outputs a control action, which is transmitted via the FishEnv environment to ROS2 topics; ROS2 delivers the command to the Stonefish simulator; the simulator performs a hydrodynamic computation step and returns the new state; FishEnv receives the updated sensor data, computes the reward, and returns a tuple to the agent. The agent stores the transition in the buffer and updates the policy parameters according to the SAC algorithm.
 
-Since the standard architecture of Stonefish does not support vectorized environments, an interface for asynchronous launching of multiple independent simulator instances was developed. Each instance operates in its own ROS environment, and data exchange is performed within a single training process through a pool of parallel FishEnv environments. The software architecture is presented in Fig.~\ref{fig:architecture}. For orchestration of the parallel environments and scaling of the training, Kubernetes is employed, providing independent lifecycle management of containers, automatic load distribution, and fault tolerance: in the event of a simulator instance crashing, the orchestrator restarts the pod without interrupting the training. Containerization also enables distributing training across multiple physical hosts, linearly increasing the number of parallel environments. The achieved performance on a single node (Intel Core i9-12900K / NVIDIA RTX 3070 Ti) amounts to 1,000,000 simulation steps per 15 minutes of training ($\sim$1000 steps per second), which is an acceptable result for accurate hydrodynamic simulation with force calculation over a finite-element mesh and ROS2 integration.
+Since the standard architecture of Stonefish does not support vectorized environments, an interface for asynchronous launching of multiple independent simulator instances was developed. Each instance operates in its own ROS environment, and data exchange is performed within a single training process through a pool of parallel FishEnv environments. The software architecture is presented in Fig.~\ref{fig:architecture}. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{fig/Fig6-eps-converted-to.pdf}
+\caption{Architecture of the developed software.}
+\label{fig:architecture}
+\end{figure}
+
+For orchestration of the parallel environments and scaling of the training, Kubernetes is employed, providing independent lifecycle management of containers, automatic load distribution, and fault tolerance: in the event of a simulator instance crashing, the orchestrator restarts the pod without interrupting the training. Containerization also enables distributing training across multiple physical hosts, linearly increasing the number of parallel environments. The achieved performance on a single node (Intel Core i9-12900K / NVIDIA RTX 3070 Ti) amounts to 1,000,000 simulation steps per 15 minutes of training ($\sim$1000 steps per second), which is an acceptable result for accurate hydrodynamic simulation with force calculation over a finite-element mesh and ROS2 integration.
 
 % ================== SECTION 4 ==================
 \section{Experimental Methodology and Results}
@@ -217,7 +274,34 @@ Since the standard architecture of Stonefish does not support vectorized environ
 
 To ensure the robustness of the trained policy and prevent overfitting of the agent to specific conditions, domain randomization was employed by deliberately varying the parameters of the simulation environment within specified ranges during the training phase. The parameters of the parallel environments are randomly changed from episode to episode, forcing the policy to generalize its control strategy [19] and making it invariant to initial conditions.
 
-The key hyperparameters of the SAC algorithm and neural network architectures used for training the final model are presented in Table~\ref{tab:training_params}. The chosen values are based on the Stable-Baselines~3 documentation as well as empirical tuning during preliminary experiments.
+The key hyperparameters of the SAC algorithm and neural network architectures used for training the final model are presented in Table~\ref{tab:training_params}. 
+
+\begin{table}
+\centering
+\captionstyle{flushleft}
+\caption{Training parameters for the best model}
+\label{tab:training_params}
+\begin{tabular}{lc}
+\hline
+Parameter & Value \\
+\hline
+Number of training steps $N$, steps & 4\,000\,000 \\
+Learning rate $lr$ & 3e-04 \\
+Discount factor $\gamma$ & 0.99 \\
+Replay buffer size $D$, steps & 2\,000\,000 \\
+Batch size & 256 \\
+Target entropy $H_{\text{target}}$ & $-2.0$ \\
+Number of hidden layers & 2 \\
+Hidden layer size & 256 \\
+Activation function & ReLU \\
+Observation buffer length & 5 \\
+Entropy coefficient $\alpha$ & automatic \\
+Number of parallel training environments & 16--64 \\
+\hline
+\end{tabular}
+\end{table}
+
+The chosen values are based on the Stable-Baselines~3 documentation as well as empirical tuning during preliminary experiments.
 
 The total number of training steps (4 million) was determined empirically as the value at which the total reward curve per episode reaches a plateau for all three learning rates investigated. The replay buffer size (2 million transitions) was chosen to be sufficient for storing experience collected over several thousand episodes, enabling efficient use of the off-policy nature of the SAC algorithm. A batch size of 256 provides a compromise between the stability of gradient estimates and computational performance on the hardware used. The neural network architecture (two hidden layers of 256 neurons with ReLU activation) is standard for continuous control tasks in Stable-Baselines~3 and provides sufficient expressive capacity without excessive computational complexity.
 
@@ -237,15 +321,55 @@ The total reward per episode (Fig.~\ref{fig:training_metrics}b) shows the weight
 
 The agent loss function (Fig.~\ref{fig:training_metrics}c) characterizes how quickly the agent improves or degrades its policy.
 
-The entropy coefficient $\alpha$ (Fig.~\ref{fig:training_metrics}d) shows how the SAC algorithm automatically regulates the balance between exploration and exploitation. High $\alpha$ at the beginning means the agent actively explores the environment. A decrease in $\alpha$ over time indicates a transition to exploitation of the discovered good strategies.
+The entropy coefficient $\alpha$ (Fig.~\ref{fig:training_metrics}d) shows how the SAC algorithm automatically regulates the balance between exploration and exploitation. High $\alpha$ at the beginning means the agent actively explores the environment. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{fig/Fig7.eps}
+\caption{(a) Episode length; (b) Total reward per episode;
+(c) Agent loss function; (d) Entropy coefficient.}
+\label{fig:training_metrics}
+\end{figure}
+
+A decrease in $\alpha$ over time indicates a transition to exploitation of the discovered good strategies.
 
 Experimental investigation of the trained control policy revealed a significant feature of BUV dynamics: the presence of a substantial time delay between the application of a control action and the observed change in state. This effect is most pronounced in the diving depth control channel, which uses an active swim bladder with variable volume as the actuator. The result of an action determined by the agent at the current moment in time manifests as a change in depth only after a certain time interval required for filling the swim bladder reservoir and for overcoming the inertia of the surrounding water mass.
 
-Figure~\ref{fig:depth_tracking} presents experimental depth change curves for three BUV agents (Episode~1, Episode~2, Episode~3) when tracking different target depth values using the final trained policy. Analysis of the obtained dependencies allows the following observations. The time to reach the target depth depends on the magnitude of the initial deviation and lies within a range determined by the maximum rate of change of the swim bladder volume.
+Figure~\ref{fig:depth_tracking} presents experimental depth change curves for three BUV agents (Episode~1, Episode~2, Episode~3) when tracking different target depth values using the final trained policy. 
+
+\begin{figure}[H]
+\centering
+\includegraphics[width=0.95\linewidth]{fig/Fig8.eps}
+\caption{Agent depth when using the trained policy for three
+different target depths: 0.77~m, 0.65~m, and 0.63~m.}
+\label{fig:depth_tracking}
+\end{figure}
+
+Analysis of the obtained dependencies allows the following observations. The time to reach the target depth depends on the magnitude of the initial deviation and lies within a range determined by the maximum rate of change of the swim bladder volume.
 
 From a practical standpoint, the presence of a time delay justifies the architectural decision to use not the instantaneous state but the 5 previous states as input to the policy. This approach allows the agent to implicitly account for the history of control actions and their delayed effect, which is fundamentally important for systems with lag, such as the buoyancy control system of the BUV.
 
 For an objective assessment of the quality of the developed control policy, a set of quantitative metrics was introduced, characterizing the accuracy and dynamics of target depth tracking: steady-state depth error, standard deviation, time to enter the $\pm 5\%$ zone, and settling time. The results of the metric calculations over 1000 test episodes with random target depths in the range from $-2.0$ to $-0.4$ m are summarized in Table~\ref{tab:quantitative_metrics}.
+
+\begin{table}
+\setcaptionmargin{0mm}
+\onelinecaptionstrue
+\captionstyle{flushleft}
+\caption{Quantitative assessment of the depth control policy quality}
+\label{tab:quantitative_metrics}
+\begin{tabular}{lc}
+\hline
+Metric & Value \\
+\hline
+Steady-state depth error & 0.07 m \\
+Standard deviation & 0.04 m \\
+Time to enter $\pm 5\%$ zone & 18.5 s \\
+Settling time & 22.0 s \\
+Maximum velocity (over 10 seconds) & 0.15 m/s \\
+Heading hold & 0$^\circ$ \\
+\hline
+\end{tabular}
+\end{table}
 
 The steady-state depth error amounted to 0.07 m, which corresponds to 3.5--17.5\% of the target value in the operating depth range of $[-2.0; -0.4]$ m. The standard deviation of 0.04 m indicates high stability of depth holding: in the steady-state regime, the vehicle oscillations relative to the target level are insignificant and are caused by the inertia of the buoyancy control system. The time to enter the $\pm 5\%$ zone from the target value is 18.5 s, and the total settling time is 22.0 s. The difference between these values (3.5 s) characterizes the duration of the final phase of the transient process, during which the error decreases from 5\% to a negligibly small value. The obtained performance indicators are acceptable for monitoring and inspection tasks, where smoothness of motion is more important than maximum speed of command execution.
 
@@ -278,20 +402,17 @@ The work was carried out within the framework of the state assignment of the Min
 \begin{thebibliography}{99}
 
 \bibitem{1}
-\refitem{article}
 I.V.~Mitin, S.A.~Lobov, N.A.~Shchur, A.V.~Popov, and
 V.B.~Kazantsev, Design and control features of a tunniform-type
 underwater biomimetic robot, {\it Robot. Tech. Cybern.},
 2024, vol.~12, no.~1, pp.~71--80.
 
 \bibitem{2}
-\refitem{article}
 I.V.~Abbasov, Modern trends in monitoring the aquatic environment
 of coastal areas, {\it Ecol. Safety Coastal Shelf Zones Sea},
 2019, no.~1, pp.~5--15.
 
 \bibitem{3}
-\refitem{article}
 W.~Schiehlen, Computational dynamics: theory and applications of
 multibody systems, {\it Eur. J. Mech. A/Solids}, 2006, vol.~25,
 no.~4, pp.~566--594.
@@ -302,243 +423,88 @@ R.W.~Blake, {\it Fish Locomotion} (Cambridge Univ. Press,
 Cambridge, 1983).
 
 \bibitem{5}
-\refitem{article}
 E.V.~Vetchanin and A.A.~Kilin, Controlled motion of a rigid body
 with internal mechanisms in an ideal incompressible fluid,
 {\it Proc. Steklov Inst. Math.}, 2016, vol.~295, no.~1,
 pp.~302--332.
 
 \bibitem{6}
-\refitem{article}
 Y.~Zhang, S.-P.~Wang, X.~Wang, and Y.~Geng, Design and control
 of bionic manta ray robot with flexible pectoral fin, {\it Proc.
 2018 IEEE 14th Int. Conf. Control Autom. (ICCA)}, 2018,
 pp.~1034--1039.
 
 \bibitem{7}
-\refitem{article}
 K.Y.~Pettersen, Snake robots, {\it Annu. Rev. Control}, 2017,
 vol.~44, pp.~19--44.
 
 \bibitem{8}
-\refitem{article}
 D.~Chen, Z.~Wu, Y.~Meng, M.~Tan, and J.~Yu, Development of a
 high-speed swimming robot with the capability of fish-like
 leaping, {\it IEEE/ASME Trans. Mechatron.}, 2022, vol.~27,
 no.~5, pp.~3579--3589.
 
 \bibitem{9}
-\refitem{article}
 M.~Sfakiotakis, D.M.~Lane, and J.B.C.~Davies, Review of fish
 swimming modes for aquatic locomotion, {\it IEEE J. Ocean. Eng.},
 1999, vol.~24, no.~2, pp.~237--252.
 
 \bibitem{10}
-\refitem{article}
 X.~Lin, W.~Song, X.~Liu, X.~He, and Y.~Wang, Exploring
 learning-based control policy for fish-like robots in altered
 background flows, {\it Proc. IEEE Int. Conf. Robot. Autom.
 (ICRA)}, 2023, pp.~237--243.
 
 \bibitem{11}
-\refitem{article}
 M.~Wang, T.~Zhao, L.~Zuo, Y.~Gong, G.~Lv, and R.~Wang, Path
 planning of bionic robotic fish based on enhanced SAC algorithm
 combined with HER and CQL, {\it Robot. Auton. Syst.}, 2026,
 vol.~198, art.~105336.
 
 \bibitem{12}
-\refitem{article}
 S.M.~Youssef, M.~Soliman, M.A.~Saleh, A.H.~Elsayed, and
 A.G.~Radwan, Design and control of soft biomimetic pangasius fish
 robot using fin ray effect and reinforcement learning,
 {\it Sci. Rep.}, 2022, vol.~12, art.~21861.
 
 \bibitem{13}
-\refitem{article}
 S.~Chu, Z.~Huang, Y.~Li, M.~Lin, I.~Carlucho, Y.R.~Petillot, and
 C.~Yang, MarineGym: A high-performance reinforcement learning
 platform for underwater robotics, {\it Proc. IEEE Int. Conf.
 Robot. Autom. (ICRA)}, 2025, 8~p.
 
 \bibitem{14}
-\refitem{article}
 N.A.~Shchur and E.V.~Glazunova, Experience in numerical
 simulation of hydrodynamics of biomimetic underwater robots,
 {\it Robot. Tech. Cybern.}, 2022, vol.~10, no.~2, pp.~104--112.
 
 \bibitem{15}
-\refitem{book}
 P.~Winder, {\it Reinforcement Learning for Real-World
 Applications} (BHV-Petersburg, St.~Petersburg, 2022).
 
 \bibitem{16}
-\refitem{misc}
 P.~Cieslak, Stonefish: An Advanced Open-Source Simulation Tool for 
 Marine Robotics, 2019. 
 \url{https://stonefish.readthedocs.io}.
 
 \bibitem{17}
-\refitem{article}
 T.~Haarnoja, A.~Zhou, P.~Abbeel, and S.~Levine, Soft
 Actor-Critic: Off-policy maximum entropy deep reinforcement
 learning with a stochastic actor, {\it Proc. 35th Int. Conf.
 Mach. Learn. (ICML)}, PMLR, 2018, pp.~1861--1870.
 
 \bibitem{18}
-\refitem{article}
 A.~Raffin, A.~Hill, A.~Gleave, A.~Kanervisto, M.~Ernestus, and
 N.~Dormann, Stable-Baselines3: Reliable reinforcement learning
 implementations, {\it J. Mach. Learn. Res.}, 2021, vol.~22,
 no.~268, pp.~1--8.
 
 \bibitem{19}
-\refitem{article}
 J.~Tobin, R.~Fong, A.~Ray, J.~Schneider, W.~Zaremba, and
 P.~Abbeel, Domain randomization for transferring deep neural
 networks from simulation to the real world, {\it Proc. IEEE/RSJ
 Int. Conf. Intell. Robots Syst. (IROS)}, 2017, pp.~23--30.
 
-
-
 \end{thebibliography}
-
-% ============== FIGURES (each on separate page) ==============
-
-\begin{figure*}[t!]
-\setcaptionmargin{5mm}
-\onelinecaptionstrue
-\includegraphics[width=0.95\linewidth]{fig/Fig1.eps}
-\caption{(a) AUV <<Vityaz-D>> (Russia);
-(b) Snake-like robot <<EELUME>> (Norway);
-(c) Manta ray robot (USA).}
-\label{fig:vehicles}
-\end{figure*}
-
-\clearpage
-
-\begin{figure*}[t!]
-\setcaptionmargin{5mm}
-\onelinecaptionstrue
-\includegraphics[width=0.95\linewidth]{fig/Fig2.eps}
-\caption{CAD model of the robot: 1~--- body with integrated head
-fairing; 2~--- pectoral fins (passive stabilizers);
-3~--- caudal fin; 4~--- multi-link tail propulsor (5~segments);
-5~--- lighting system; 6~--- three cameras.}
-\label{fig:cad_model}
-\end{figure*}
-
-\clearpage
-
-\begin{figure*}[t!]
-\setcaptionmargin{5mm}
-\onelinecaptionstrue
-\includegraphics[width=0.95\linewidth]{fig/Fig3.eps}
-\caption{Prototype testing and internal structure of the robot.}
-\label{fig:prototype}
-\end{figure*}
-
-\clearpage
-
-\begin{figure*}[t!]
-\setcaptionmargin{5mm}
-\onelinecaptionstrue
-\includegraphics[width=0.95\linewidth]{fig/Fig4.eps}
-\caption{Five-segment tail of the robotic fish.}
-\label{fig:tail}
-\end{figure*}
-
-\clearpage
-
-\begin{figure*}[t!]
-\setcaptionmargin{5mm}
-\onelinecaptionstrue
-\includegraphics[width=0.95\linewidth]{fig/Fig5.eps}
-\caption{Hydrodynamic model, geometric model, collision model,
-model of the tail with 5 elements.}
-\label{fig:sim_models}
-\end{figure*}
-
-\clearpage
-
-\begin{figure*}[t!]
-\setcaptionmargin{5mm}
-\onelinecaptionstrue
-\includegraphics[width=0.95\linewidth]{fig/Fig6.eps}
-\caption{Architecture of the developed software.}
-\label{fig:architecture}
-\end{figure*}
-
-\clearpage
-
-\begin{figure*}[t!]
-\setcaptionmargin{5mm}
-\onelinecaptionstrue
-\includegraphics[width=0.95\linewidth]{fig/Fig7.eps}
-\caption{(a) Episode length; (b) Total reward per episode;
-(c) Agent loss function; (d) Entropy coefficient.}
-\label{fig:training_metrics}
-\end{figure*}
-
-\clearpage
-
-\begin{figure*}[t!]
-\setcaptionmargin{5mm}
-\onelinecaptionstrue
-\includegraphics[width=0.95\linewidth]{fig/Fig8.eps}
-\caption{Agent depth when using the trained policy for three
-different target depths: 0.77~m, 0.65~m, and 0.63~m.}
-\label{fig:depth_tracking}
-\end{figure*}
-
-% ============== TABLES ==============
-
-\begin{table}
-\setcaptionmargin{0mm}
-\onelinecaptionstrue
-\captionstyle{flushleft}
-\caption{Training parameters for the best model}
-\label{tab:training_params}
-\begin{tabular}{lc}
-\hline
-Parameter & Value \\
-\hline
-Number of training steps $N$, steps & 4\,000\,000 \\
-Learning rate $lr$ & 3e-04 \\
-Discount factor $\gamma$ & 0.99 \\
-Replay buffer size $D$, steps & 2\,000\,000 \\
-Batch size & 256 \\
-Target entropy $H_{\text{target}}$ & $-2.0$ \\
-Number of hidden layers & 2 \\
-Hidden layer size & 256 \\
-Activation function & ReLU \\
-Observation buffer length & 5 \\
-Entropy coefficient $\alpha$ & automatic \\
-Number of parallel training environments & 16--64 \\
-\hline
-\end{tabular}
-\end{table}
-
-\clearpage
-
-\begin{table}
-\setcaptionmargin{0mm}
-\onelinecaptionstrue
-\captionstyle{flushleft}
-\caption{Quantitative assessment of the depth control policy quality}
-\label{tab:quantitative_metrics}
-\begin{tabular}{lc}
-\hline
-Metric & Value \\
-\hline
-Steady-state depth error & 0.07 m \\
-Standard deviation & 0.04 m \\
-Time to enter $\pm 5\%$ zone & 18.5 s \\
-Settling time & 22.0 s \\
-Maximum velocity (over 10 seconds) & 0.15 m/s \\
-Heading hold & 0$^\circ$ \\
-\hline
-\end{tabular}
-\end{table}
 
 \end{document}
