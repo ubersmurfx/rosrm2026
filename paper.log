@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.4.1)  5 JUL 2026 12:23
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2025.4.1)  22 JUL 2026 23:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -553,29 +553,29 @@ File: l3backend-pdftex.def 2024-01-04 L3 backend support: PDF output (pdfTeX)
 (./paper.aux)
 \openout1 = `paper.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
-LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 9.
-LaTeX Font Info:    ... okay on input line 9.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
+LaTeX Font Info:    Checking defaults for T2A/cmr/m/n on input line 18.
+LaTeX Font Info:    ... okay on input line 18.
 Class revtex4 Info: Unrecognized array package. Please update this document cla
-ss! (Proceeding with fingers crossed.) on input line 9.
+ss! (Proceeding with fingers crossed.) on input line 18.
 Class revtex4 Info: Patching unrecognized longtable package. (Proceeding with f
-ingers crossed) on input line 9.
-Class revtex4 Info: cite was not loaded (OK!) on input line 9.
-Class revtex4 Info: multicol was not loaded (OK!) on input line 9.
-LaTeX Info: Redefining \th on input line 9.
+ingers crossed) on input line 18.
+Class revtex4 Info: cite was not loaded (OK!) on input line 18.
+Class revtex4 Info: multicol was not loaded (OK!) on input line 18.
+LaTeX Info: Redefining \th on input line 18.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
@@ -612,12 +612,12 @@ Package epstopdf Info: Source file: <fig/Fig1.eps>
 (epstopdf)                    size: 527602 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/Fig1-eps-converted-to.
 pdf fig/Fig1.eps>
-(epstopdf)             \includegraphics on input line 71.
+(epstopdf)             \includegraphics on input line 82.
 Package epstopdf Info: Output file is already uptodate.
 <fig/Fig1-eps-converted-to.pdf, id=14, 1927.2pt x 1204.5pt>
 File: fig/Fig1-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/Fig1-eps-converted-to.pdf>
-Package pdftex.def Info: fig/Fig1-eps-converted-to.pdf  used on input line 71.
+Package pdftex.def Info: fig/Fig1-eps-converted-to.pdf  used on input line 82.
 (pdftex.def)             Requested size: 469.47046pt x 293.40501pt.
  [3] [4 <./fig/Fig1-eps-converted-to.pdf>] [5]
 Package epstopdf Info: Source file: <fig/Fig2.eps>
@@ -628,20 +628,20 @@ Package epstopdf Info: Source file: <fig/Fig2.eps>
 (epstopdf)                    size: 44374 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/Fig2-eps-converted-to.
 pdf fig/Fig2.eps>
-(epstopdf)             \includegraphics on input line 103.
+(epstopdf)             \includegraphics on input line 114.
 Package epstopdf Info: Output file is already uptodate.
 <fig/Fig2-eps-converted-to.pdf, id=28, 1088.065pt x 272.01625pt>
 File: fig/Fig2-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/Fig2-eps-converted-to.pdf>
-Package pdftex.def Info: fig/Fig2-eps-converted-to.pdf  used on input line 103.
+Package pdftex.def Info: fig/Fig2-eps-converted-to.pdf  used on input line 114.
 
 (pdftex.def)             Requested size: 469.47046pt x 117.36731pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 114
+LaTeX Font Info:    Trying to load font information for U+msa on input line 125
 .
  (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 114
+LaTeX Font Info:    Trying to load font information for U+msb on input line 125
 .
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -649,7 +649,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
 
 LaTeX Font Warning: Font shape `T2A/cmr/m/up' undefined
-(Font)              using `T2A/cmr/m/n' instead on input line 114.
+(Font)              using `T2A/cmr/m/n' instead on input line 125.
 
 [6 <./fig/Fig2-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <fig/Fig3.eps>
@@ -660,12 +660,12 @@ Package epstopdf Info: Source file: <fig/Fig3.eps>
 (epstopdf)                    size: 146341 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/Fig3-eps-converted-to.
 pdf fig/Fig3.eps>
-(epstopdf)             \includegraphics on input line 123.
+(epstopdf)             \includegraphics on input line 134.
 Package epstopdf Info: Output file is already uptodate.
 <fig/Fig3-eps-converted-to.pdf, id=34, 894.34125pt x 384.43625pt>
 File: fig/Fig3-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/Fig3-eps-converted-to.pdf>
-Package pdftex.def Info: fig/Fig3-eps-converted-to.pdf  used on input line 123.
+Package pdftex.def Info: fig/Fig3-eps-converted-to.pdf  used on input line 134.
 
 (pdftex.def)             Requested size: 445.9955pt x 191.71317pt.
  [7 <./fig/Fig3-eps-converted-to.pdf>]
@@ -677,12 +677,12 @@ Package epstopdf Info: Source file: <fig/Fig4.eps>
 (epstopdf)                    size: 15555 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/Fig4-eps-converted-to.
 pdf fig/Fig4.eps>
-(epstopdf)             \includegraphics on input line 137.
+(epstopdf)             \includegraphics on input line 148.
 Package epstopdf Info: Output file is already uptodate.
 <fig/Fig4-eps-converted-to.pdf, id=43, 693.59125pt x 264.99pt>
 File: fig/Fig4-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/Fig4-eps-converted-to.pdf>
-Package pdftex.def Info: fig/Fig4-eps-converted-to.pdf  used on input line 137.
+Package pdftex.def Info: fig/Fig4-eps-converted-to.pdf  used on input line 148.
 
 (pdftex.def)             Requested size: 445.9955pt x 170.39766pt.
 
@@ -695,18 +695,18 @@ Package epstopdf Info: Source file: <fig/Fig5.eps>
 (epstopdf)                    size: 80336 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/Fig5-eps-converted-to.
 pdf fig/Fig5.eps>
-(epstopdf)             \includegraphics on input line 206.
+(epstopdf)             \includegraphics on input line 217.
 Package epstopdf Info: Output file is already uptodate.
 <fig/Fig5-eps-converted-to.pdf, id=62, 813.0375pt x 175.65625pt>
 File: fig/Fig5-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/Fig5-eps-converted-to.pdf>
-Package pdftex.def Info: fig/Fig5-eps-converted-to.pdf  used on input line 206.
+Package pdftex.def Info: fig/Fig5-eps-converted-to.pdf  used on input line 217.
 
 (pdftex.def)             Requested size: 445.9955pt x 96.3566pt.
  [11 <./fig/Fig5-eps-converted-to.pdf>] [12{/usr/share/texmf/fonts/enc/dvips/cm
 -super/cm-super-ts1.enc}]
 LaTeX Font Info:    Trying to load font information for T2A+cmtt on input line 
-256.
+267.
 
 (/usr/share/texlive/texmf-dist/tex/latex/cyrillic/t2acmtt.fd
 File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
@@ -714,7 +714,7 @@ File: t2acmtt.fd 2001/08/11 v1.0a Computer Modern Cyrillic font definitions
 <fig/Fig6-eps-converted-to.pdf, id=75, 792.9625pt x 606.265pt>
 File: fig/Fig6-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/Fig6-eps-converted-to.pdf>
-Package pdftex.def Info: fig/Fig6-eps-converted-to.pdf  used on input line 264.
+Package pdftex.def Info: fig/Fig6-eps-converted-to.pdf  used on input line 275.
 
 (pdftex.def)             Requested size: 445.9955pt x 340.99547pt.
  [13] [14 <./fig/Fig6-eps-converted-to.pdf>] [15] [16]
@@ -726,12 +726,12 @@ Package epstopdf Info: Source file: <fig/Fig7.eps>
 (epstopdf)                    size: 154741 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/Fig7-eps-converted-to.
 pdf fig/Fig7.eps>
-(epstopdf)             \includegraphics on input line 328.
+(epstopdf)             \includegraphics on input line 339.
 Package epstopdf Info: Output file is already uptodate.
 <fig/Fig7-eps-converted-to.pdf, id=94, 814.04124pt x 531.9875pt>
 File: fig/Fig7-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/Fig7-eps-converted-to.pdf>
-Package pdftex.def Info: fig/Fig7-eps-converted-to.pdf  used on input line 328.
+Package pdftex.def Info: fig/Fig7-eps-converted-to.pdf  used on input line 339.
 
 (pdftex.def)             Requested size: 445.9955pt x 291.4657pt.
  [17 <./fig/Fig7-eps-converted-to.pdf>]
@@ -743,17 +743,17 @@ Package epstopdf Info: Source file: <fig/Fig8.eps>
 (epstopdf)                    size: 155966 bytes
 (epstopdf)             Command: <repstopdf --outfile=fig/Fig8-eps-converted-to.
 pdf fig/Fig8.eps>
-(epstopdf)             \includegraphics on input line 342.
+(epstopdf)             \includegraphics on input line 353.
 Package epstopdf Info: Output file is already uptodate.
 <fig/Fig8-eps-converted-to.pdf, id=100, 624.3325pt x 591.20876pt>
 File: fig/Fig8-eps-converted-to.pdf Graphic file (type pdf)
 <use fig/Fig8-eps-converted-to.pdf>
-Package pdftex.def Info: fig/Fig8-eps-converted-to.pdf  used on input line 342.
+Package pdftex.def Info: fig/Fig8-eps-converted-to.pdf  used on input line 353.
 
 (pdftex.def)             Requested size: 445.9955pt x 422.34119pt.
 
 [18] [19 <./fig/Fig8-eps-converted-to.pdf>] [20] [21]
-Underfull \hbox (badness 10000) in paragraph at lines 421--424
+Underfull \hbox (badness 10000) in paragraph at lines 443--446
 []\T2A/cmr/m/up/10.95 \refitem{[]}
  []
 
@@ -768,13 +768,13 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 8154 strings out of 474222
- 126505 string characters out of 5748734
+ 8152 strings out of 474222
+ 126430 string characters out of 5748734
  1935975 words of memory out of 5000000
- 30289 multiletter control sequences out of 15000+600000
+ 30287 multiletter control sequences out of 15000+600000
  577960 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 74i,12n,79p,1033b,380s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 74i,12n,79p,1033b,383s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texl
@@ -796,7 +796,7 @@ per/sfrm1095.pfb></usr/share/texmf/fonts/type1/public/cm-super/sfrm1200.pfb></u
 sr/share/texmf/fonts/type1/public/cm-super/sfti1095.pfb></usr/share/texmf/fonts
 /type1/public/cm-super/sftt1095.pfb></usr/share/texmf/fonts/type1/public/cm-sup
 er/sftt1200.pfb>
-Output written on paper.pdf (23 pages, 1602929 bytes).
+Output written on paper.pdf (23 pages, 1608476 bytes).
 PDF statistics:
  228 PDF objects out of 1000 (max. 8388607)
  136 compressed objects within 2 object streams

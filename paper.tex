@@ -6,6 +6,15 @@
 \usepackage{graphicx}
 \usepackage{float}
 
+% Journal: no parentheses / uppercase around received--accepted dates
+\makeatletter
+\def\frontmatter@RRAP@format{%
+  \small
+  \centering
+}
+\def\punct@RRAP{; }%
+\makeatother
+
 \begin{document}
 
 \title{Intelligent Motion Control of an Underwater Biomimetic Robot
@@ -14,9 +23,11 @@
 \author{G.V. Kazantsev}
 \author{L.A. Stankevich}
 \affiliation{Central Research and Development Institute of Robotics
-             and Technical Cybernetics, Saint-Petersburg, Russia}
-
-\date{\today}
+             and Technical Cybernetics, Saint-Petersburg, Russia\\
+             e-mail: georgiy.kazantsev.91@mail.ru}
+\received{June 9, 2026}
+\revised[revised ]{July 6, 2026}
+\accepted[accepted ]{July 13, 2026}
 
 \begin{abstract}
 Control of biomimetic underwater vehicles (BUVs) is complicated
@@ -393,12 +404,23 @@ The effect of a substantial time delay in the buoyancy control channel, caused b
 A promising direction is the extension of the problem formulation to three-dimensional control with simultaneous stabilization of depth, heading, and cruising speed, as well as the integration of navigation algorithms for autonomous motion along a specified trajectory. Of particular interest is the application of sim-to-real transfer methods to adapt the policy trained in simulation to real-world water body conditions, taking into account non-stationary currents. It is also planned to investigate the effectiveness of alternative reinforcement learning algorithms (TD3, PPO) on the proposed task and to conduct a comparative analysis with classical PID-based control methods.
 
 % ============== ACKNOWLEDGMENTS ==============
-\begin{acknowledgments}
+\section*{FUNDING}
+\noindent
 The work was carried out within the framework of the state assignment of the Ministry of Science and Higher Education of the Russian Federation No.~075-00558-26-00 dated January~12, 2026 ``Development of the theory of model-oriented design for the creation of transformable robotic systems using methods of computational mechanics and fluid dynamics'' (FNRG-2025-0005 1024042600099-7-2.2.2;1.2.1).
 
-\end{acknowledgments}
+\section*{CONFLICT OF INTEREST}
+\noindent
+The authors of this work declare that he has no conflicts of interest.
 
 % ============== BIBLIOGRAPHY ==============
+% Replace APS horizontal rule with the word REFERENCES
+\makeatletter
+\renewcommand{\bibsection}{%
+  \let\@hangfroms@section\@hang@froms
+  \section*{REFERENCES}%
+  \@nobreaktrue
+}
+\makeatother
 \begin{thebibliography}{99}
 
 \bibitem{1}
